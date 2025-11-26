@@ -21,11 +21,11 @@ class UserResource extends JsonResource
 
             // Role information
             'role' => $this->role,
-            'role_label' => $this->role_label,  // "Administrator", "Ketua RT", etc
+//            'role_label' => $this->role_label,  // "Administrator", "Ketua RT", etc
 
             // Status information
             'is_active' => $this->is_active,
-            'status_label' => $this->status_label,  // "Active" or "Inactive"
+//            'status_label' => $this->status_label,  // "Active" or "Inactive"
         ];
     }
 

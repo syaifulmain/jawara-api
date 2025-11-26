@@ -58,4 +58,22 @@ class AuthController extends Controller
             return $this->errorResponse('Terjadi kesalahan saat logout', 500);
         }
     }
+
+    /**
+     * Get authenticated user
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+
+    public function profile(Request $request): JsonResponse
+    {
+        try {
+            $user = $request->user();
+
+            return $this->successResponse(new UserResource($user), 'Profil user berhasil diambil');
+        } catch (Exception $e) {
+            return $this->errorResponse('Terjadi kesalahan saat mengambil profil user', 500);
+        }
+    }
 }
