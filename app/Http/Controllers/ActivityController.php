@@ -38,6 +38,11 @@ class ActivityController extends Controller
                 });
             }
 
+            //filter tanggal kegiatan
+            if ($request->has('date')) {
+                $query->whereDate('date', $request->date);
+            }
+
             // Filter by date range
             if ($request->has('date_from')) {
                 $query->whereDate('date', '>=', $request->date_from);
