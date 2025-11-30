@@ -22,8 +22,8 @@ class BroadcastRequest extends FormRequest
         ];
 
         if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
-            $rules['photo'] = 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048';
-            $rules['document'] = 'nullable|file|mimes:pdf,doc,docx,xls,xlsx|max:5120';
+            $rules['photo'] = 'nullable|string';
+            $rules['document'] = 'nullable|string';
         }
 
         return $rules;

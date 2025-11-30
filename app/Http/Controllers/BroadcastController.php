@@ -8,6 +8,7 @@ use App\Models\BroadcastModel;
 use App\Traits\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Exception;
 
@@ -94,19 +95,19 @@ class BroadcastController extends Controller
             $broadcast = BroadcastModel::findOrFail($id);
             $data = $request->validated();
 
-            if ($request->hasFile('photo')) {
-                if ($broadcast->photo) {
-                    Storage::disk('public')->delete($broadcast->photo);
-                }
-                $data['photo'] = $request->file('photo')->store('broadcasts/photos', 'public');
-            }
-
-            if ($request->hasFile('document')) {
-                if ($broadcast->document) {
-                    Storage::disk('public')->delete($broadcast->document);
-                }
-                $data['document'] = $request->file('document')->store('broadcasts/documents', 'public');
-            }
+//            if ($request->hasFile('photo')) {
+//                if ($broadcast->photo) {
+//                    Storage::disk('public')->delete($broadcast->photo);
+//                }
+//                $data['photo'] = $request->file('photo')->store('broadcasts/photos', 'public');
+//            }
+//
+//            if ($request->hasFile('document')) {
+//                if ($broadcast->document) {
+//                    Storage::disk('public')->delete($broadcast->document);
+//                }
+//                $data['document'] = $request->file('document')->store('broadcasts/documents', 'public');
+//            }
 
             $broadcast->update($data);
 
