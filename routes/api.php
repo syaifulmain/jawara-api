@@ -24,5 +24,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('families', FamilyController::class)->only(['index', 'show']);
     Route::apiResource('addresses', AddressController::class)->only(['index', 'show', 'store']);
     Route::apiResource('users', UserController::class)->only(['index', 'show']);
-    Route::apiResource('transfer-channels', TransferChannelController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
+    Route::apiResource('transfer-channels', TransferChannelController::class);
 });
