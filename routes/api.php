@@ -4,6 +4,7 @@ use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BroadcastController;
+use App\Http\Controllers\IncomeCategoryController;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\UserController;
@@ -23,4 +24,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('families', FamilyController::class)->only(['index', 'show']);
     Route::apiResource('addresses', AddressController::class)->only(['index', 'show', 'store']);
     Route::apiResource('users', UserController::class)->only(['index', 'show']);
+    
+    // Income Categories routes
+    Route::apiResource('income-categories', IncomeCategoryController::class);
+    Route::get('income-categories-types', [IncomeCategoryController::class, 'types']);
 });
