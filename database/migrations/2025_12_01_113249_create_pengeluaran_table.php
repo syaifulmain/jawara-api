@@ -14,23 +14,23 @@ return new class extends Migration
         Schema::create('pengeluaran', function (Blueprint $table) {
             $table->id();
 
-            // Jenis pengeluaran 
-            $table->string('jenis_pengeluaran');
-
             // Nama pengeluaran 
             $table->string('nama_pengeluaran');
-
-            // Kategori 
-            $table->string('kategori')->default('Lain-lain');
 
             // Tanggal pengeluaran
             $table->date('tanggal');
 
-            // Nominal / jumlah 
+            // Kategori
+            $table->string('kategori')->default('Lain-lain');
+
+            // Nominal jumlah
             $table->decimal('nominal', 20, 2);
 
-            // Verifikator 
-            $table->string('verifikator')->nullable();
+            // Verifikator default 'Admin Jawara'
+            $table->string('verifikator')->default('Admin Jawara');
+
+            // Bukti foto pengeluaran (nama file)
+            $table->string('bukti_pengeluaran')->nullable();
 
             $table->timestamps();
         });
