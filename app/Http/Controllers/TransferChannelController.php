@@ -56,20 +56,22 @@ class TransferChannelController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(TransferChannelRequest $request)
     {
-        //
+        try {
+            $transferChannel = TransferChannel::create($request->validated());
+
+            return $this->successResponse(
+                new TransferChannelDetailResource($transferChannel),
+                'Resident created successfully'
+            );
+        } catch (Exception $e) {
+            return $this->errorResponse('Failed to create resident', 500, $e->getMessage());
+        }
     }
 
     /**
