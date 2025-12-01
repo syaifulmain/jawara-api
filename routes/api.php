@@ -7,6 +7,7 @@ use App\Http\Controllers\BroadcastController;
 use App\Http\Controllers\IncomeCategoryController;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\ResidentController;
+use App\Http\Controllers\TransferChannelController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,5 @@ Route::middleware('auth:sanctum')->group(function () {
     // Income Categories routes
     Route::apiResource('income-categories', IncomeCategoryController::class);
     Route::get('income-categories-types', [IncomeCategoryController::class, 'types']);
+    Route::apiResource('transfer-channels', TransferChannelController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
 });
