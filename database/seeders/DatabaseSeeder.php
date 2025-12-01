@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ActivitySeeder::class,
             BroadcastSeeder::class,
             ResidentSeeder::class,
+            IncomeCategorySeeder::class,
         ]);
     }
 }
