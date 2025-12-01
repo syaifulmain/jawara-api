@@ -15,9 +15,7 @@ class PengeluaranSeeder extends Seeder
     {
         $data = [
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Assault Rifle AK-103',
-                'kategori'          => 'Persenjataan',
                 'tanggal'           => '2025-03-03',
                 'nominal'           => 82000000,
                 'verifikator'       => 'Admin Jawara',
@@ -25,9 +23,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Assault Rifle HK416',
-                'kategori'          => 'Persenjataan',
                 'tanggal'           => '2025-03-04',
                 'nominal'           => 90000000,
                 'verifikator'       => 'Admin Jawara',
@@ -35,9 +31,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Submachine Gun UMP45',
-                'kategori'          => 'Persenjataan',
                 'tanggal'           => '2025-03-05',
                 'nominal'           => 45000000,
                 'verifikator'       => 'Admin Jawara',
@@ -45,9 +39,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Submachine Gun P90',
-                'kategori'          => 'Persenjataan',
                 'tanggal'           => '2025-03-06',
                 'nominal'           => 58000000,
                 'verifikator'       => 'Admin Jawara',
@@ -55,9 +47,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Pistol Glock 19 Gen5',
-                'kategori'          => 'Persenjataan Ringan',
                 'tanggal'           => '2025-03-07',
                 'nominal'           => 18000000,
                 'verifikator'       => 'Admin Jawara',
@@ -65,9 +55,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Pistol SIG Sauer P320',
-                'kategori'          => 'Persenjataan Ringan',
                 'tanggal'           => '2025-03-08',
                 'nominal'           => 22000000,
                 'verifikator'       => 'Admin Jawara',
@@ -75,9 +63,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Sniper Rifle AWM .338 Lapua',
-                'kategori'          => 'Senapan Runduk',
                 'tanggal'           => '2025-03-09',
                 'nominal'           => 240000000,
                 'verifikator'       => 'Admin Jawara',
@@ -85,9 +71,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Sniper Rifle Sako TRG-42',
-                'kategori'          => 'Senapan Runduk',
                 'tanggal'           => '2025-03-10',
                 'nominal'           => 210000000,
                 'verifikator'       => 'Admin Jawara',
@@ -95,9 +79,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Sniper Rifle CheyTac M200 Intervention',
-                'kategori'          => 'Senapan Runduk',
                 'tanggal'           => '2025-03-11',
                 'nominal'           => 350000000,
                 'verifikator'       => 'Admin Jawara',
@@ -105,9 +87,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Sniper Rifle Dragunov SVD',
-                'kategori'          => 'Senapan Runduk',
                 'tanggal'           => '2025-03-12',
                 'nominal'           => 170000000,
                 'verifikator'       => 'Admin Jawara',
@@ -115,9 +95,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Pembelian Assault Rifle M4A1',
-                'kategori'          => 'Persenjataan',
                 'tanggal'           => '2025-01-10',
                 'nominal'           => 75000000,
                 'verifikator'       => 'Admin Jawara',
@@ -125,9 +103,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Amunisi',
                 'nama_pengeluaran'  => 'Amunisi 5.56mm NATO',
-                'kategori'          => 'Amunisi',
                 'tanggal'           => '2025-01-12',
                 'nominal'           => 25000000,
                 'verifikator'       => 'Admin Jawara',
@@ -135,9 +111,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Drone',
                 'nama_pengeluaran'  => 'Drone Recon MQ-9 Mini',
-                'kategori'          => 'Teknologi',
                 'tanggal'           => '2025-01-15',
                 'nominal'           => 150000000,
                 'verifikator'       => 'Admin Jawara',
@@ -145,9 +119,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pemeliharaan',
                 'nama_pengeluaran'  => 'Maintenance Tank Leopard 2A7',
-                'kategori'          => 'Perawatan',
                 'tanggal'           => '2025-01-20',
                 'nominal'           => 300000000,
                 'verifikator'       => 'Admin Jawara',
@@ -155,9 +127,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Pembelian Sniper Rifle Barrett M82',
-                'kategori'          => 'Persenjataan',
                 'tanggal'           => '2025-01-25',
                 'nominal'           => 180000000,
                 'verifikator'       => 'Admin Jawara',
@@ -165,9 +135,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Amunisi',
                 'nama_pengeluaran'  => 'Amunisi .50 BMG',
-                'kategori'          => 'Amunisi',
                 'tanggal'           => '2025-01-26',
                 'nominal'           => 48000000,
                 'verifikator'       => 'Admin Jawara',
@@ -175,9 +143,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Peralatan Tambahan',
                 'nama_pengeluaran'  => 'Night Vision Goggles GEN-4',
-                'kategori'          => 'Teknologi',
                 'tanggal'           => '2025-01-28',
                 'nominal'           => 65000000,
                 'verifikator'       => 'Admin Jawara',
@@ -185,9 +151,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'Armored Vehicle MRAP Cougar',
-                'kategori'          => 'Kendaraan Tempur',
                 'tanggal'           => '2025-02-01',
                 'nominal'           => 950000000,
                 'verifikator'       => 'Admin Jawara',
@@ -195,9 +159,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Submachine Gun MP7',
-                'kategori'          => 'Persenjataan',
                 'tanggal'           => '2025-02-05',
                 'nominal'           => 60000000,
                 'verifikator'       => 'Admin Jawara',
@@ -205,9 +167,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Amunisi',
                 'nama_pengeluaran'  => 'Amunisi 4.6×30mm',
-                'kategori'          => 'Amunisi',
                 'tanggal'           => '2025-02-06',
                 'nominal'           => 15000000,
                 'verifikator'       => 'Admin Jawara',
@@ -215,9 +175,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Roket',
                 'nama_pengeluaran'  => 'Anti Tank Rocket AT4',
-                'kategori'          => 'Persenjataan Berat',
                 'tanggal'           => '2025-02-10',
                 'nominal'           => 70000000,
                 'verifikator'       => 'Admin Jawara',
@@ -225,9 +183,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Maintenance',
                 'nama_pengeluaran'  => 'Servis Helikopter Black Hawk',
-                'kategori'          => 'Perawatan',
                 'tanggal'           => '2025-02-12',
                 'nominal'           => 550000000,
                 'verifikator'       => 'Admin Jawara',
@@ -235,9 +191,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Sistem',
                 'nama_pengeluaran'  => 'Sistem Radar Portable AN/TPS-80',
-                'kategori'          => 'Teknologi',
                 'tanggal'           => '2025-02-14',
                 'nominal'           => 1200000000,
                 'verifikator'       => 'Admin Jawara',
@@ -245,9 +199,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'Jeep Militer Humvee H1',
-                'kategori'          => 'Kendaraan Tempur',
                 'tanggal'           => '2025-02-16',
                 'nominal'           => 350000000,
                 'verifikator'       => 'Admin Jawara',
@@ -255,9 +207,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Peralatan Tambahan',
                 'nama_pengeluaran'  => 'Kevlar Helmet MK7',
-                'kategori'          => 'Perlengkapan',
                 'tanggal'           => '2025-02-18',
                 'nominal'           => 20000000,
                 'verifikator'       => 'Admin Jawara',
@@ -265,9 +215,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Peralatan Tambahan',
                 'nama_pengeluaran'  => 'Tactical Vest Modular Carrier',
-                'kategori'          => 'Perlengkapan',
                 'tanggal'           => '2025-02-20',
                 'nominal'           => 35000000,
                 'verifikator'       => 'Admin Jawara',
@@ -275,9 +223,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Drone',
                 'nama_pengeluaran'  => 'Combat Drone Bayraktar TB2 Mini',
-                'kategori'          => 'Teknologi',
                 'tanggal'           => '2025-02-22',
                 'nominal'           => 300000000,
                 'verifikator'       => 'Admin Jawara',
@@ -285,9 +231,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Senapan',
                 'nama_pengeluaran'  => 'Shotgun Taktis Benelli M4',
-                'kategori'          => 'Persenjataan',
                 'tanggal'           => '2025-02-24',
                 'nominal'           => 45000000,
                 'verifikator'       => 'Admin Jawara',
@@ -295,9 +239,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Amunisi',
                 'nama_pengeluaran'  => 'Granat Fragmentasi M67',
-                'kategori'          => 'Amunisi',
                 'tanggal'           => '2025-02-26',
                 'nominal'           => 20000000,
                 'verifikator'       => 'Admin Jawara',
@@ -305,9 +247,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Maintenance',
                 'nama_pengeluaran'  => 'Perbaikan Radar Jarak Menengah',
-                'kategori'          => 'Perawatan',
                 'tanggal'           => '2025-03-01',
                 'nominal'           => 250000000,
                 'verifikator'       => 'Admin Jawara',
@@ -315,9 +255,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'APV Bushmaster Protected Mobility',
-                'kategori'          => 'Kendaraan Tempur',
                 'tanggal'           => '2025-03-13',
                 'nominal'           => 850000000,
                 'verifikator'       => 'Admin Jawara',
@@ -325,9 +263,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'APC M113 Armored Carrier',
-                'kategori'          => 'Kendaraan Tempur',
                 'tanggal'           => '2025-03-14',
                 'nominal'           => 680000000,
                 'verifikator'       => 'Admin Jawara',
@@ -335,9 +271,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'MPV Toyota Hilux Military Spec',
-                'kategori'          => 'Kendaraan Operasional',
                 'tanggal'           => '2025-03-15',
                 'nominal'           => 450000000,
                 'verifikator'       => 'Admin Jawara',
@@ -345,9 +279,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'MPV Mitsubishi Triton Tactical',
-                'kategori'          => 'Kendaraan Operasional',
                 'tanggal'           => '2025-03-16',
                 'nominal'           => 430000000,
                 'verifikator'       => 'Admin Jawara',
@@ -355,9 +287,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'Truck Angkut Personel MAN HX60',
-                'kategori'          => 'Kendaraan Angkut',
                 'tanggal'           => '2025-03-17',
                 'nominal'           => 900000000,
                 'verifikator'       => 'Admin Jawara',
@@ -365,9 +295,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'Truck Angkut Logistik Mercedes Zetros',
-                'kategori'          => 'Kendaraan Angkut',
                 'tanggal'           => '2025-03-18',
                 'nominal'           => 1200000000,
                 'verifikator'       => 'Admin Jawara',
@@ -375,9 +303,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'APV RG-31 Nyala',
-                'kategori'          => 'Kendaraan Tempur',
                 'tanggal'           => '2025-03-19',
                 'nominal'           => 780000000,
                 'verifikator'       => 'Admin Jawara',
@@ -385,9 +311,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'APC BTR-80 Personnel Carrier',
-                'kategori'          => 'Kendaraan Tempur',
                 'tanggal'           => '2025-03-20',
                 'nominal'           => 1020000000,
                 'verifikator'       => 'Admin Jawara',
@@ -395,9 +319,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'MPV Ford Ranger Tactical',
-                'kategori'          => 'Kendaraan Operasional',
                 'tanggal'           => '2025-03-21',
                 'nominal'           => 390000000,
                 'verifikator'       => 'Admin Jawara',
@@ -405,9 +327,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Kendaraan',
                 'nama_pengeluaran'  => 'Truck Angkut Militer DAF YA-4440',
-                'kategori'          => 'Kendaraan Angkut',
                 'tanggal'           => '2025-03-22',
                 'nominal'           => 880000000,
                 'verifikator'       => 'Admin Jawara',
@@ -415,9 +335,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Tank',
                 'nama_pengeluaran'  => 'Tank T-90MS',
-                'kategori'          => 'Kendaraan Tempur Berat',
                 'tanggal'           => '2025-03-23',
                 'nominal'           => 5600000000,
                 'verifikator'       => 'Admin Jawara',
@@ -425,9 +343,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Tank',
                 'nama_pengeluaran'  => 'Tank M1A2 Abrams SEP v3',
-                'kategori'          => 'Kendaraan Tempur Berat',
                 'tanggal'           => '2025-03-24',
                 'nominal'           => 7800000000,
                 'verifikator'       => 'Admin Jawara',
@@ -435,9 +351,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Tank',
                 'nama_pengeluaran'  => 'Tank Leopard 2A5',
-                'kategori'          => 'Kendaraan Tempur Berat',
                 'tanggal'           => '2025-03-25',
                 'nominal'           => 6000000000,
                 'verifikator'       => 'Admin Jawara',
@@ -445,9 +359,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Tank',
                 'nama_pengeluaran'  => 'Tank K2 Black Panther',
-                'kategori'          => 'Kendaraan Tempur Berat',
                 'tanggal'           => '2025-03-26',
                 'nominal'           => 8500000000,
                 'verifikator'       => 'Admin Jawara',
@@ -455,9 +367,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Pembelian Tank',
                 'nama_pengeluaran'  => 'Tank Merkava Mk4',
-                'kategori'          => 'Kendaraan Tempur Berat',
                 'tanggal'           => '2025-03-27',
                 'nominal'           => 7200000000,
                 'verifikator'       => 'Admin Jawara',
@@ -465,9 +375,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Ransum',
                 'nama_pengeluaran'  => 'Ransum Tempur MRE Paket A',
-                'kategori'          => 'Logistik',
                 'tanggal'           => '2025-03-28',
                 'nominal'           => 5000000,
                 'verifikator'       => 'Admin Jawara',
@@ -475,9 +383,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Ransum',
                 'nama_pengeluaran'  => 'Ransum Tempur MRE Paket B',
-                'kategori'          => 'Logistik',
                 'tanggal'           => '2025-03-29',
                 'nominal'           => 5200000,
                 'verifikator'       => 'Admin Jawara',
@@ -485,9 +391,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Amunisi',
                 'nama_pengeluaran'  => 'Amunisi 7.62mm NATO',
-                'kategori'          => 'Amunisi',
                 'tanggal'           => '2025-03-30',
                 'nominal'           => 33000000,
                 'verifikator'       => 'Admin Jawara',
@@ -495,9 +399,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Amunisi',
                 'nama_pengeluaran'  => 'Amunisi RPG-7 HEAT',
-                'kategori'          => 'Amunisi Berat',
                 'tanggal'           => '2025-03-31',
                 'nominal'           => 150000000,
                 'verifikator'       => 'Admin Jawara',
@@ -505,9 +407,7 @@ class PengeluaranSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ],
             [
-                'jenis_pengeluaran' => 'Amunisi',
                 'nama_pengeluaran'  => 'Amunisi Mortir 81mm',
-                'kategori'          => 'Amunisi Berat',
                 'tanggal'           => '2025-04-01',
                 'nominal'           => 270000000,
                 'verifikator'       => 'Admin Jawara',
