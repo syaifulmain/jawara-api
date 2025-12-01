@@ -12,11 +12,11 @@ class Pengeluaran extends Model
     protected $table = 'pengeluaran';
 
     protected $fillable = [
-        'jenis_pengeluaran',
         'nama_pengeluaran',
-        'kategori',
         'tanggal',
+        'kategori',
         'nominal',
         'verifikator',
+        'bukti_pengeluaran',
     ];
 }
