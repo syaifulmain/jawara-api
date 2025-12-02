@@ -4,9 +4,6 @@
 name: Build and deploy PHP app to Azure Web App - 5d43bee89120bb2c55a022eb8fca053e32847af88
 
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
 
 jobs:
@@ -57,4 +54,5 @@ jobs:
           app-name: '5d43bee89120bb2c55a022eb8fca053e32847af88'
           slot-name: 'Production'
           package: .
+
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A6B73F1D34E4456499A7A209A082AB6A }}
