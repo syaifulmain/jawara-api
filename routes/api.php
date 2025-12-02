@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\BroadcastController;
 use App\Http\Controllers\IncomeCategoryController;
 use App\Http\Controllers\FamilyController;
@@ -30,4 +31,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('income-categories', IncomeCategoryController::class);
     Route::get('income-categories-types', [IncomeCategoryController::class, 'types']);
     Route::apiResource('transfer-channels', TransferChannelController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
+    
+    // Bills routes
+    Route::apiResource('bills', BillController::class);
+    Route::post('bills/generate', [BillController::class, 'generateBills']);
+    Route::patch('bills/{id}/upload-payment', [BillController::class, 'uploadPaymentProof']);
+    Route::patch('bills/{id}/approve-payment', [BillController::class, 'approvePayment']);
+    Route::patch('bills/{id}/reject-payment', [BillController::class, 'rejectPayment']);
+    Route::get('bills/statistics', [BillController::class, 'statistics']);
+    Route::post('bills/mark-overdue', [BillController::class, 'markOverdue']);
 });
