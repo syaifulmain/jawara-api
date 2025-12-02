@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pengeluaran extends Model
+class PengeluaranModel extends Model
 {
     use HasFactory;
 
@@ -18,5 +18,10 @@ class Pengeluaran extends Model
         'nominal',
         'verifikator',
         'bukti_pengeluaran',
+    ];
+
+    protected $casts = [
+        'id' => 'integer',
+        'tanggal' => 'date',
     ];
 }
