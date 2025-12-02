@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class IncomeCategory extends Model
+class IncomeCategoryModel extends Model
 {
     protected $table = 'income_categories';
 

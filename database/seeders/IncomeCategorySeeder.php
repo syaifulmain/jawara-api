@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\IncomeCategory;
+use App\Models\IncomeCategoryModel;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -66,7 +66,7 @@ class IncomeCategorySeeder extends Seeder
         ];
 
         foreach ($categories as $category) {
-            IncomeCategory::create($category);
+            IncomeCategoryModel::create($category);
         }
 
         $this->command->info('Income categories seeded successfully.');
