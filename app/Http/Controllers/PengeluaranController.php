@@ -46,8 +46,10 @@ class PengeluaranController extends Controller
             $sortBy = $request->get('sort_by', 'tanggal');
             $sortOrder = $request->get('sort_order', 'desc');
 
-            $pengeluaran = $query->orderBy($sortBy, $sortOrder)
-                ->paginate($request->get('per_page', 15));
+            // $pengeluaran = $query->orderBy($sortBy, $sortOrder)
+            //     ->paginate($request->get('per_page', 15));
+
+            $pengeluaran = $query->orderBy($sortBy, $sortOrder)->get();
 
             return $this->successResponse(
                 PengeluaranListResource::collection($pengeluaran),
