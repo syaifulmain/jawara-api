@@ -8,7 +8,7 @@ use App\Http\Controllers\BroadcastController;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\Api\PengeluaranController;
+use App\Http\Controllers\PengeluaranController;
 
 Route::post('/login', [AuthController::class, 'login']);
 
