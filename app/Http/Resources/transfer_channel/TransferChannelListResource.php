@@ -19,6 +19,7 @@ class TransferChannelListResource extends JsonResource
             'name' => $this->name,
             'type' => $this->type,
             'owner_name' => $this->owner_name,
+            'account_number' => $this->account_number,
         ];
 
         return $transferChannel;
