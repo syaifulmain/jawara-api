@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             IncomeCategorySeeder::class,
             IncomeSeeder::class,
             TransferChannelSeeder::class,
+            BillSeeder::class,
         ]);
     }
 }
