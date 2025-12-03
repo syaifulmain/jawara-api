@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('broadcasts/{id}/download-document', [BroadcastController::class, 'downloadDocument']);
 
     Route::apiResource('residents', ResidentController::class)->only(['index', 'show', 'store', 'update']);
+    Route::get('/residents/user/{userId}', [ResidentController::class, 'getByUserId']);
     Route::apiResource('families', FamilyController::class)->only(['index', 'show']);
     Route::apiResource('addresses', AddressController::class)->only(['index', 'show', 'store']);
     Route::apiResource('users', UserController::class)->only(['index', 'show']);

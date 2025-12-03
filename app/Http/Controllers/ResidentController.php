@@ -108,6 +108,11 @@ class ResidentController extends Controller
         } catch (Exception $e) {
             return $this->errorResponse('Failed to update resident', 500, $e->getMessage());
         }
+    }
 
+    public function getByUserId($userId)
+    {
+        $resident = ResidentModel::where('user_id', $userId)->first();
+        return $resident ? new ResidentListResource($resident) : response()->json(['message' => 'Not found'], 404);
     }
 }
