@@ -57,3 +57,52 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## API usage: Income ✅
+
+Below are example requests for the incomes resource:
+
+- List incomes:
+
+```bash
+curl -X GET 'http://your-app.test/api/incomes'
+```
+
+- Show income detail:
+
+```bash
+curl -X GET 'http://your-app.test/api/incomes/1'
+```
+
+- Create income example:
+
+```bash
+curl -X POST 'http://your-app.test/api/incomes' \
+	-H 'Content-Type: application/json' \
+	-H 'Authorization: Bearer <token>' \
+	-d '{
+		"name": "Penjualan Produk XYZ",
+		"income_type": "Penjualan",
+		"date": "2025-11-30",
+		"amount": 1200000.00,
+		"date_verification": "2025-12-01",
+		"verification": "Sesuai"
+	}'
+```
+
+Example payload returned by the detail endpoint:
+
+```json
+{
+	"id": 1,
+	"name": "Jual hasil panen",
+	"income_type": "Penjualan",
+	"date": "2025-11-29T00:00:00+00:00",
+	"amount": "1500000.00",
+	"date_verification": "2025-11-30T00:00:00+00:00",
+	"verification": "Sesuai",
+	"created_at": "2025-11-29T11:23:45+00:00",
+	"updated_at": "2025-11-29T11:23:45+00:00"
+}
+```
+
