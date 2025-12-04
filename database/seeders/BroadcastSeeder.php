@@ -22,6 +22,8 @@ class BroadcastSeeder extends Seeder
             'message' => 'Ini adalah pengumuman penting untuk semua anggota.',
             'published_at' => now(),
             'created_by' => $user->id,
+            'photo' => 'storage/broadcasts/sample-image.jpg',
+            'document' => 'storage/broadcasts/sample-document.pdf',
         ]);
 
         BroadcastModel::create([
@@ -29,6 +31,8 @@ class BroadcastSeeder extends Seeder
             'message' => 'Informasi mengenai kegiatan yang akan datang.',
             'published_at' => now(),
             'created_by' => $user->id,
+            'photo' => 'storage/broadcasts/sample-image.jpg',
+            'document' => 'storage/broadcasts/sample-document.pdf',
         ]);
     }
 }
