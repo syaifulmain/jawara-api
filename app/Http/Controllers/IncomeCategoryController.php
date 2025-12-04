@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\IncomeCategoryRequest;
 use App\Http\Resources\IncomeCategoryResource;
-use App\Models\IncomeCategory;
+use App\Models\IncomeCategoryModel;
 use App\Traits\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -21,7 +21,7 @@ class IncomeCategoryController extends Controller
     public function index(Request $request): JsonResponse
     {
         try {
-            $query = IncomeCategory::with('creator');
+            $query = IncomeCategoryModel::with('creator');
 
             // Filter by type
             if ($request->has('type')) {
@@ -63,7 +63,7 @@ class IncomeCategoryController extends Controller
             $data = $request->validated();
             $data['created_by'] = Auth::id();
 
-            $category = IncomeCategory::create($data);
+            $category = IncomeCategoryModel::create($data);
             $category->load('creator');
 
             return $this->createdResponse(
@@ -81,7 +81,7 @@ class IncomeCategoryController extends Controller
     public function show(string $id): JsonResponse
     {
         try {
-            $category = IncomeCategory::with('creator')->findOrFail($id);
+            $category = IncomeCategoryModel::with('creator')->findOrFail($id);
 
             return $this->successResponse(
                 new IncomeCategoryResource($category),
@@ -98,7 +98,7 @@ class IncomeCategoryController extends Controller
     public function update(IncomeCategoryRequest $request, string $id): JsonResponse
     {
         try {
-            $category = IncomeCategory::findOrFail($id);
+            $category = IncomeCategoryModel::findOrFail($id);
             $category->update($request->validated());
             $category->load('creator');
 
@@ -117,7 +117,7 @@ class IncomeCategoryController extends Controller
     public function destroy(string $id): JsonResponse
     {
         try {
-            $category = IncomeCategory::findOrFail($id);
+            $category = IncomeCategoryModel::findOrFail($id);
             $category->delete();
 
             return $this->successResponse(null, 'Income category deleted successfully');
