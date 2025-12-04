@@ -22,6 +22,8 @@ class BroadcastSeeder extends Seeder
             'message' => 'Ini adalah pengumuman penting untuk semua anggota.',
             'published_at' => now(),
             'created_by' => $user->id,
+            // 'photo' => 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Meitei_Houdong_%28Meetei_Houdong%29_-_A_typical_Meitei_domestic_cat_%28Meetei_house_cat%29_01.jpg',
+            // 'document' => 'https://mag.wcoomd.org/uploads/2018/05/blank.pdf',
         ]);
 
         BroadcastModel::create([
@@ -29,6 +31,8 @@ class BroadcastSeeder extends Seeder
             'message' => 'Informasi mengenai kegiatan yang akan datang.',
             'published_at' => now(),
             'created_by' => $user->id,
+            // 'photo' => 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Meitei_Houdong_%28Meetei_Houdong%29_-_A_typical_Meitei_domestic_cat_%28Meetei_house_cat%29_01.jpg',
+            // 'document' => 'https://mag.wcoomd.org/uploads/2018/05/blank.pdf',
         ]);
     }
 }

@@ -26,8 +26,12 @@ class TransferChannelRequest extends FormRequest
             'type' => ['required', 'in:BANK,E_WALLET,QRIS'],
             'owner_name' => ['required', 'string', 'max:100'],
             'account_number' => ['required', 'string', 'max:50'],
-            'qr_code_image_path' => ['nullable', 'string', 'max:255'],
-            'thumbnail_image_path' => ['nullable', 'string', 'max:255'],
+            // 'qr_code_image_path' => ['nullable', 'string', 'max:255'],
+            // 'thumbnail_image_path' => ['nullable', 'string', 'max:255'],
+
+            'qr_code_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif'],
+            'thumbnail_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif'],
+
             'notes' => ['nullable', 'string', 'max:255'],
 
         ];
