@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
             BroadcastSeeder::class,
             ResidentSeeder::class,
             PengeluaranSeeder::class,
+            IncomeCategorySeeder::class,
+            IncomeSeeder::class,
+            TransferChannelSeeder::class,
+            BillSeeder::class,
         ]);
     }
 }

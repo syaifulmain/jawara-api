@@ -13,6 +13,8 @@ class ResidentListResource extends JsonResource
 
         return [
             'id' => $this->id,
+            'user_id' => $this->user_id,
+            'family_id' => $this->family_id,
             'nama' => $this->full_name,
             'nik' => $this->nik,
             'keluarga' => $this->family?->name,
