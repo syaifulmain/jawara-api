@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\ResidentModel;
 
 class User extends Authenticatable
 {
@@ -121,7 +122,7 @@ class User extends Authenticatable
      */
     public function getRoleLabelAttribute(): string
     {
-        return match($this->role) {
+        return match ($this->role) {
             self::ROLE_ADMIN => 'Administrator',
             self::ROLE_USER => 'User',
             self::ROLE_RT => 'Ketua RT',
@@ -138,5 +139,13 @@ class User extends Authenticatable
     public function getStatusLabelAttribute(): string
     {
         return $this->is_active ? 'Aktif' : 'Tidak Aktif';
+    }
+
+    /**
+     * Relationship: User has one Resident
+     */
+    public function resident()
+    {
+        return $this->hasOne(ResidentModel::class, 'user_id');
     }
 }

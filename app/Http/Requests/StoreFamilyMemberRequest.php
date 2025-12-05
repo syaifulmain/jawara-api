@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreFamilyMemberRequest extends FormRequest
 {
@@ -11,7 +12,8 @@ class StoreFamilyMemberRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // Harus true supaya request bisa dijalankan
+        return true;
     }
 
     /**
@@ -21,19 +23,20 @@ class StoreFamilyMemberRequest extends FormRequest
      */
     public function rules(): array
     {
+        $residentId = $this->route('resident');
+
         return [
-            'name' => 'required|string',
-            'nik' => 'required|string|max:16',
-            'phone' => 'nullable|string',
-            'birth_place' => 'required|string',
-            'birth_date' => 'required|date',
-            'gender' => 'required',
-            'religion' => 'required',
-            'blood_type' => 'nullable',
-            'family_role' => 'required',
-            'education' => 'nullable',
-            'occupation' => 'nullable',
-            'status' => 'required',
+            'full_name' => ['required', 'string', 'max:150'],
+            'nik' => ['required', 'string', 'size:16', Rule::unique('residents', 'nik')->ignore($residentId)],
+            'phone_number' => ['nullable', 'string', 'max:20'],
+            'birth_place' => ['required', 'string', 'max:100'],
+            'birth_date' => ['required', 'date'],
+            'gender' => ['required', 'in:M,F'],
+            'religion' => ['nullable', 'in:Islam,Kristen,Katolik,Hindu,Buddha,Konghucu,Lainnya'],
+            'blood_type' => ['nullable', 'in:A,B,AB,O'],
+            'family_role' => ['required', 'string', 'max:50'],
+            'last_education' => ['nullable', 'string', 'max:100'],
+            'occupation' => ['nullable', 'string', 'max:100'],
         ];
     }
 }

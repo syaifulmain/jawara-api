@@ -13,6 +13,8 @@ use App\Http\Controllers\TransferChannelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\UserFamilyController;
+
 
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -46,4 +48,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('bills/mark-overdue', [BillController::class, 'markOverdue']);
     Route::apiResource('incomes', IncomeController::class)->only(['index', 'show', 'store', 'update']);
     Route::apiResource('transfer-channels', TransferChannelController::class);
+
+    // User Family
+    Route::get('/my-family', [UserFamilyController::class, 'myFamily']);
+    Route::post('/my-family/add-member', [UserFamilyController::class, 'store']);
 });
