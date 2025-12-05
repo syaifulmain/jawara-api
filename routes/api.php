@@ -13,7 +13,6 @@ use App\Http\Controllers\TransferChannelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\IncomeController;
-use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -31,12 +30,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('addresses', AddressController::class)->only(['index', 'show', 'store']);
     Route::apiResource('users', UserController::class)->only(['index', 'show']);
     Route::apiResource('pengeluaran', PengeluaranController::class)->only(['index', 'show', 'store']);
-    
+
     // Income Categories routes
     Route::apiResource('income-categories', IncomeCategoryController::class);
     Route::get('income-categories-types', [IncomeCategoryController::class, 'types']);
     Route::apiResource('transfer-channels', TransferChannelController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
-    
+
     // Bills routes
     Route::apiResource('bills', BillController::class);
     Route::post('bills/generate', [BillController::class, 'generateBills']);
