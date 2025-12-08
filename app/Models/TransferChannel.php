@@ -18,4 +18,14 @@ class TransferChannel extends Model
         'type' => TransferChannelType::class,
     ];
 
+
+    public function getQrCodeImageUrlAttribute(): ?string
+    {
+        return $this->qr_code_image_path ? url("storage/{$this->qr_code_image_path}") : null;
+    }
+
+    public function getThumbnailImageUrlAttribute(): ?string
+    {
+        return $this->thumbnail_image_path ? url("storage/{$this->thumbnail_image_path}") : null;
+    }
 }

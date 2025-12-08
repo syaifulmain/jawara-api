@@ -85,12 +85,12 @@ class TransferChannelController extends Controller
 
             if ($request->hasFile('qr_code_image')) {
                 $data['qr_code_image_path'] = $request->file('qr_code_image')
-                    ->store('qr_code_images', 'public');
+                    ->store('transfer_channels/qr_code_images', 'public');
             }
 
             if ($request->hasFile('thumbnail_image')) {
                 $data['thumbnail_image_path'] = $request->file('thumbnail_image')
-                    ->store('thumbnail_images', 'public');
+                    ->store('transfer_channels/thumbnail_images', 'public');
             }
 
             $transferChannel = TransferChannel::create($data);
