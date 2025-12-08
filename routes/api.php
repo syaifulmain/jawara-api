@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AuthController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\TransferChannelController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\IncomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('families', FamilyController::class)->only(['index', 'show']);
     Route::apiResource('addresses', AddressController::class)->only(['index', 'show', 'store']);
     Route::apiResource('users', UserController::class)->only(['index', 'show']);
+    Route::apiResource('pengeluaran', PengeluaranController::class)->only(['index', 'show', 'store']);
     
     // Income Categories routes
     Route::apiResource('income-categories', IncomeCategoryController::class);
