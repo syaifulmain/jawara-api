@@ -49,7 +49,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('incomes', IncomeController::class)->only(['index', 'show', 'store', 'update']);
     Route::apiResource('transfer-channels', TransferChannelController::class);
 
-    // User Family
-    Route::get('/my-family', [UserFamilyController::class, 'myFamily']);
-    Route::post('/my-family/add-member', [UserFamilyController::class, 'store']);
+    Route::get('/user/family', [UserFamilyController::class, 'myFamily']);
 });
