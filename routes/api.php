@@ -18,6 +18,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/profile', [AuthController::class, 'profile']);
+    Route::put('/profile/{id}', [AuthController::class, 'updateProfile']); // Route diubah
     Route::apiResource('activities', ActivityController::class);
     Route::apiResource('broadcasts', BroadcastController::class);
     Route::get('broadcasts/{id}/download-photo', [BroadcastController::class, 'downloadPhoto']);
@@ -27,13 +28,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/residents/user/{userId}', [ResidentController::class, 'getByUserId']);
     Route::apiResource('families', FamilyController::class)->only(['index', 'show']);
     Route::apiResource('addresses', AddressController::class)->only(['index', 'show', 'store']);
-    Route::apiResource('users', UserController::class)->only(['index', 'show']);
-    
+    Route::apiResource('users', UserController::class)->only(['index', 'show', 'store']);
+
     // Income Categories routes
     Route::apiResource('income-categories', IncomeCategoryController::class);
     Route::get('income-categories-types', [IncomeCategoryController::class, 'types']);
     Route::apiResource('transfer-channels', TransferChannelController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
-    
+
     // Bills routes
     Route::apiResource('bills', BillController::class);
     Route::post('bills/generate', [BillController::class, 'generateBills']);

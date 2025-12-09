@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->enum('role', ['admin', 'user', 'rt', 'rw', 'bendahara', 'serketaris'])->default('user');
-            $table->boolean('is_active')->default(false);
+            $table->boolean('is_active')->default(false)->nullable();
+            $table->string('identity_photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

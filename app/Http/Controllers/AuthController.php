@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Traits\ApiResponse;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -74,6 +76,42 @@ class AuthController extends Controller
             return $this->successResponse(new UserResource($user), 'Profil user berhasil diambil');
         } catch (Exception $e) {
             return $this->errorResponse('Terjadi kesalahan saat mengambil profil user', 500);
+        }
+    }
+
+    public function updateProfile(UpdateProfileRequest $request, string $id): JsonResponse
+    {
+        try {
+            DB::beginTransaction();
+
+            $user = User::findOrFail($id);
+            $data = [];
+
+            if ($request->filled('email')) {
+                $data['email'] = $request->email;
+            }
+
+            if ($request->filled('phone')) {
+                $data['phone'] = $request->phone;
+            }
+
+            if ($request->filled('password')) {
+                $data['password'] = Hash::make($request->password);
+            }
+
+            if (!empty($data)) {
+                $user->update($data);
+            }
+
+            DB::commit();
+
+            return $this->successResponse(
+                new UserResource($user->fresh()),
+                'Profil berhasil diperbarui'
+            );
+        } catch (Exception $e) {
+            DB::rollBack();
+            return $this->errorResponse('Terjadi kesalahan saat memperbarui profil', 500);
         }
     }
 }
