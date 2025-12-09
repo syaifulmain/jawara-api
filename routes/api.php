@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [AuthController::class, 'profile']);
     Route::put('/profile/{id}', [AuthController::class, 'updateProfile']); // Route diubah
     Route::apiResource('activities', ActivityController::class);
+    Route::get('/activities-this-month', [ActivityController::class, 'getActivityInThisMonth']);
     Route::apiResource('broadcasts', BroadcastController::class);
     Route::get('broadcasts/{id}/download-photo', [BroadcastController::class, 'downloadPhoto']);
     Route::get('broadcasts/{id}/download-document', [BroadcastController::class, 'downloadDocument']);
@@ -31,7 +32,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/residents/user/{userId}', [ResidentController::class, 'getByUserId']);
     Route::apiResource('families', FamilyController::class)->only(['index', 'show']);
     Route::apiResource('addresses', AddressController::class)->only(['index', 'show', 'store']);
-    Route::apiResource('users', UserController::class)->only(['index', 'show']);
     Route::apiResource('pengeluaran', PengeluaranController::class)->only(['index', 'show', 'store']);
 
     Route::apiResource('users', UserController::class)->only(['index', 'show', 'store']);
