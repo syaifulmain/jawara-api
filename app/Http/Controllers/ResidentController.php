@@ -55,8 +55,8 @@ class ResidentController extends Controller
                 $query->where('is_family_head', $request->boolean('is_family_head'));
             }
 
-            $residents = $query->orderBy('full_name')
-                ->paginate($request->get('per_page', 15));
+            $residents = $query->orderBy('full_name')->get();
+            // ->paginate($request->get('per_page', 15));
 
             return $this->successResponse(
                 ResidentListResource::collection($residents),

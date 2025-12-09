@@ -19,6 +19,7 @@ class FamilyDetailResource extends JsonResource
             'family_status' => $this->is_active ? 'Aktif' : 'Tidak Aktif',
             'family_members' => $this->residents->map(function ($resident) {
                 return [
+                    'id' => $resident->id,
                     'name' => $resident->full_name,
                     'nik' => $resident->nik,
                     'role' => $resident->family_role,

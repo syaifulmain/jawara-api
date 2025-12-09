@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AuthController;
@@ -10,8 +11,10 @@ use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\TransferChannelController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\IncomeController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserFamilyController;
+
 
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -28,6 +31,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/residents/user/{userId}', [ResidentController::class, 'getByUserId']);
     Route::apiResource('families', FamilyController::class)->only(['index', 'show']);
     Route::apiResource('addresses', AddressController::class)->only(['index', 'show', 'store']);
+    Route::apiResource('users', UserController::class)->only(['index', 'show']);
+    Route::apiResource('pengeluaran', PengeluaranController::class)->only(['index', 'show', 'store']);
+
     Route::apiResource('users', UserController::class)->only(['index', 'show', 'store']);
 
     // Income Categories routes
@@ -45,4 +51,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('bills/mark-overdue', [BillController::class, 'markOverdue']);
     Route::apiResource('incomes', IncomeController::class)->only(['index', 'show', 'store', 'update']);
     Route::apiResource('transfer-channels', TransferChannelController::class);
+
+    Route::get('/user/family', [UserFamilyController::class, 'myFamily']);
 });

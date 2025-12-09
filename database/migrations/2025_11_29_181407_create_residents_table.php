@@ -20,8 +20,8 @@ return new class extends Migration {
             $table->string('birth_place', 100)->nullable();
             $table->date('birth_date')->nullable();
             $table->enum('gender', ['M', 'F']);
-            $table->enum('religion', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu', 'Lainnya'])->nullable();
-            $table->enum('blood_type', ['A', 'B', 'AB', 'O'])->nullable();
+            $table->enum('religion', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghuchu', 'Lainnya'])->nullable();
+            $table->enum('blood_type', ['A', 'B', 'AB', 'O', 'Tidak Tahu'])->nullable();
             $table->string('family_role', 50);
             $table->string('last_education', 100)->nullable();
             $table->string('occupation', 100)->nullable();
