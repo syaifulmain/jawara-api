@@ -49,7 +49,7 @@ class TransferChannelController extends Controller
             // );
             return $this->successResponse(
                 TransferChannelListResource::collection($transferChannels),
-                'Residents retrieved successfully'
+                'Transfer channels retrieved successfully'
             );
         } catch (Exception $e) {
             return $this->errorResponse('Failed to retrieve transfer channels', 500, $e->getMessage());
@@ -63,14 +63,44 @@ class TransferChannelController extends Controller
     public function store(TransferChannelRequest $request)
     {
         try {
-            $transferChannel = TransferChannel::create($request->validated());
+            // $data = $request->validated();
+
+            // // Upload QR image jika ada
+            // if ($request->hasFile('qr_code_image')) {
+            //     $data['qr_code_image_path'] = $request->file('qr_code_image')
+            //         ->store('qr_code_images', 'public');
+            // }
+
+            // // Upload thumbnail jika ada
+            // if ($request->hasFile('thumbnail_image')) {
+            //     $data['thumbnail_image_path'] = $request->file('thumbnail_image')
+            //         ->store('thumbnail_images', 'public');
+            // }
+
+            // // Create model
+            // $transferChannel = TransferChannel::create($data);
+
+
+            $data = $request->safe()->except(['qr_code_image', 'thumbnail_image']);
+
+            if ($request->hasFile('qr_code_image')) {
+                $data['qr_code_image_path'] = $request->file('qr_code_image')
+                    ->store('transfer_channels/qr_code_images', 'public');
+            }
+
+            if ($request->hasFile('thumbnail_image')) {
+                $data['thumbnail_image_path'] = $request->file('thumbnail_image')
+                    ->store('transfer_channels/thumbnail_images', 'public');
+            }
+
+            $transferChannel = TransferChannel::create($data);
 
             return $this->successResponse(
                 new TransferChannelDetailResource($transferChannel),
-                'Resident created successfully'
+                'Transfer channel created successfully'
             );
         } catch (Exception $e) {
-            return $this->errorResponse('Failed to create resident', 500, $e->getMessage());
+            return $this->errorResponse('Failed to create transfer channel', 500, $e->getMessage());
         }
     }
 
@@ -98,11 +128,11 @@ class TransferChannelController extends Controller
     public function update(TransferChannelRequest $request, int $id)
     {
         try {
-            $resident = TransferChannel::findOrFail($id);
-            $resident->update($request->validated());
+            $transferChannel = TransferChannel::findOrFail($id);
+            $transferChannel->update($request->validated());
 
             return $this->successResponse(
-                new TransferChannelDetailResource($resident),
+                new TransferChannelDetailResource($transferChannel),
                 'Transfer channel updated successfully'
             );
         } catch (Exception $e) {
