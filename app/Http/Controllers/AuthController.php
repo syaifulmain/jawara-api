@@ -32,7 +32,7 @@ class AuthController extends Controller
                 return $this->errorResponse('Email atau password salah', 401);
             }
 
-            $user->tokens()->delete();
+//            $user->tokens()->delete();
             $token = $user->createToken('auth_token')->plainTextToken;
 
             return $this->successResponse([
