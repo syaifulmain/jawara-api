@@ -22,6 +22,7 @@ class User extends Authenticatable
         'password',
         'role',
         'is_active',
+        'identity_photo',
     ];
 
     /**
@@ -147,5 +148,13 @@ class User extends Authenticatable
     public function resident()
     {
         return $this->hasOne(ResidentModel::class, 'user_id');
+    }
+
+    public function getIdentityPhotoUrlAttribute(): ?string
+    {
+        if ($this->identity_photo) {
+            return url('storage/' . $this->identity_photo);
+        }
+        return null;
     }
 }
