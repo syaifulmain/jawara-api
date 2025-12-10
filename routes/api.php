@@ -17,6 +17,8 @@ use App\Http\Controllers\TransferChannelController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\AspirasiController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserFamilyController;
 
 
@@ -56,6 +58,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('bills/statistics', [BillController::class, 'statistics']);
     Route::post('bills/mark-overdue', [BillController::class, 'markOverdue']);
     Route::apiResource('incomes', IncomeController::class)->only(['index', 'show', 'store', 'update']);
+
+    Route::post('/aspirasi', [AspirasiController::class, 'store']);
+    Route::get('/aspirasi/this-month', [AspirasiController::class, 'thisMonth']);
+    Route::get('/aspirasi/my-history', [AspirasiController::class, 'myHistory']);
+    Route::get('/aspirasi', [AspirasiController::class, 'index']);
+    Route::get('/aspirasi/{id}', [AspirasiController::class, 'show']);
+    Route::put('/aspirasi/{id}', [AspirasiController::class, 'update']);
+    Route::delete('/aspirasi/{id}', [AspirasiController::class, 'destroy']);
     Route::apiResource('transfer-channels', TransferChannelController::class);
 
     Route::get('/user/family', [UserFamilyController::class, 'myFamily']);
