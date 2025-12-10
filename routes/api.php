@@ -64,5 +64,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard/kependudukan', [DashboardKependudukanController::class, 'index']);
 
     Route::get('/reports/financial', [LaporanKeuanganController::class, 'cetakLaporan']);
-
+    Route::get('/reports/financial/download-pdf', [LaporanKeuanganController::class, 'downloadPdf']);
 });
