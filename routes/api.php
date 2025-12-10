@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardKegiatanController;
 use App\Http\Controllers\DashboardKependudukanController;
 use App\Http\Controllers\DashboardKeuanganController;
+use App\Http\Controllers\LaporanKeuanganController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AddressController;
@@ -61,5 +62,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/dashboard/keuangan', [DashboardKeuanganController::class, 'index']);
     Route::get('/dashboard/kegiatan', [DashboardKegiatanController::class, 'index']);
     Route::get('/dashboard/kependudukan', [DashboardKependudukanController::class, 'index']);
+
+    Route::get('/reports/financial', [LaporanKeuanganController::class, 'cetakLaporan']);
 
 });
