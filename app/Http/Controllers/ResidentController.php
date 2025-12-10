@@ -55,8 +55,8 @@ class ResidentController extends Controller
                 $query->where('is_family_head', $request->boolean('is_family_head'));
             }
 
-            $residents = $query->orderBy('full_name')
-                ->paginate($request->get('per_page', 15));
+            $residents = $query->orderBy('full_name')->get();
+            // ->paginate($request->get('per_page', 15));
 
             return $this->successResponse(
                 ResidentListResource::collection($residents),
@@ -108,6 +108,11 @@ class ResidentController extends Controller
         } catch (Exception $e) {
             return $this->errorResponse('Failed to update resident', 500, $e->getMessage());
         }
+    }
 
+    public function getByUserId($userId)
+    {
+        $resident = ResidentModel::where('user_id', $userId)->first();
+        return $resident ? new ResidentListResource($resident) : response()->json(['message' => 'Not found'], 404);
     }
 }

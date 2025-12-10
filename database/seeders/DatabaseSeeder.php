@@ -20,8 +20,12 @@ class DatabaseSeeder extends Seeder
             ActivitySeeder::class,
             BroadcastSeeder::class,
             ResidentSeeder::class,
+            PengeluaranSeeder::class,
+            IncomeCategorySeeder::class,
             IncomeSeeder::class,
             AspirasiSeeder::class,
+            TransferChannelSeeder::class,
+            BillSeeder::class,
         ]);
     }
 }

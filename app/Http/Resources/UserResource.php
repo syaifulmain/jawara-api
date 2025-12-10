@@ -26,6 +26,8 @@ class UserResource extends JsonResource
             // Status information
             'is_active' => $this->is_active,
 //            'status_label' => $this->status_label,  // "Active" or "Inactive"
+        //getIdentityPhotoUrlAttribute
+        'photo_url' => $this->identity_photo_url,
         ];
     }
 

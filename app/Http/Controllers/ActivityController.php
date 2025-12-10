@@ -129,4 +129,21 @@ class ActivityController extends Controller
             return $this->errorResponse('Failed to delete activity', 500, $e->getMessage());
         }
     }
+
+    public function getActivityInThisMonth(): JsonResponse
+    {
+        try {
+            $activities = ActivityModel::whereMonth('date', now()->month)
+                ->whereYear('date', now()->year)
+                ->orderBy('date', 'desc')
+                ->get();
+
+            return $this->successResponse(
+                ActivityResource::collection($activities),
+                'Activities for this month retrieved successfully'
+            );
+        } catch (Exception $e) {
+            return $this->errorResponse('Failed to retrieve activities for this month', 500, $e->getMessage());
+        }
+    }
 }

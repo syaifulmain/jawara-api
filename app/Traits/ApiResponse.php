@@ -18,9 +18,10 @@ trait ApiResponse
      * @param int $code
      * @return JsonResponse
      */
-    protected function successResponse($data = null, string $message = 'Success', int $code = 200): JsonResponse
+    protected function successResponse($data = null, string $message = 'Success', int $code = 200,$success = true): JsonResponse
     {
         return response()->json([
+            'success' => $success,
             'status' => $code,
             'message' => $message,
             'data' => $data,
@@ -35,9 +36,10 @@ trait ApiResponse
      * @param mixed $errors
      * @return JsonResponse
      */
-    protected function errorResponse(string $message = 'Error', int $code = 400, $errors = null): JsonResponse
+    protected function errorResponse(string $message = 'Error', int $code = 400, $errors = null, $success = false): JsonResponse
     {
         $response = [
+            'success' => $success,
             'status' => $code,
             'message' => $message,
         ];
