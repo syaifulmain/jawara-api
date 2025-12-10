@@ -170,4 +170,24 @@ class BroadcastController extends Controller
             return $this->errorResponse('Failed to download document', 500, $e->getMessage());
         }
     }
+
+    public function getBroadcastThisWeek(): JsonResponse
+    {
+        try {
+            $startOfWeek = now()->startOfWeek();
+            $endOfWeek = now()->endOfWeek();
+
+            $broadcasts = BroadcastModel::with('creator')
+                ->whereBetween('published_at', [$startOfWeek, $endOfWeek])
+                ->orderBy('published_at', 'desc')
+                ->get();
+
+            return $this->successResponse(
+                BroadcastResource::collection($broadcasts),
+                'Broadcasts for this week retrieved successfully'
+            );
+        } catch (Exception $e) {
+            return $this->errorResponse('Failed to retrieve broadcasts for this week', 500, $e->getMessage());
+        }
+    }
 }

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardKegiatanController;
+use App\Http\Controllers\DashboardKependudukanController;
+use App\Http\Controllers\DashboardKeuanganController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AddressController;
@@ -25,6 +28,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('activities', ActivityController::class);
     Route::get('/activities-this-month', [ActivityController::class, 'getActivityInThisMonth']);
     Route::apiResource('broadcasts', BroadcastController::class);
+    Route::get('/broadcast-this-week', [BroadcastController::class, 'getBroadcastThisWeek']);
     Route::get('broadcasts/{id}/download-photo', [BroadcastController::class, 'downloadPhoto']);
     Route::get('broadcasts/{id}/download-document', [BroadcastController::class, 'downloadDocument']);
 
@@ -53,4 +57,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('transfer-channels', TransferChannelController::class);
 
     Route::get('/user/family', [UserFamilyController::class, 'myFamily']);
+
+    Route::get('/dashboard/keuangan', [DashboardKeuanganController::class, 'index']);
+    Route::get('/dashboard/kegiatan', [DashboardKegiatanController::class, 'index']);
+    Route::get('/dashboard/kependudukan', [DashboardKependudukanController::class, 'index']);
+
 });
