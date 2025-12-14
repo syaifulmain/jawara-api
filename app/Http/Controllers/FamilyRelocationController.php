@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FamilyRelocationRequest;
 use App\Http\Resources\family_relocation\FamilyRelocationDetailResource;
 use App\Http\Resources\family_relocation\FamilyRelocationListResource;
+use App\Models\FamilyAddressHistoryModel;
 use App\Models\FamilyRelocation;
 use App\Traits\ApiResponse;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -84,9 +87,49 @@ class FamilyRelocationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FamilyRelocationRequest $request): JsonResponse
     {
-        //
+        try {
+            DB::beginTransaction();
+
+            $relocation = FamilyRelocation::create($request->validated());
+
+            // Update family address history
+            // Close the old address (set moved_out_at)
+            if ($request->past_address_id) {
+                FamilyAddressHistoryModel::where('family_id', $request->family_id)
+                    ->where('address_id', $request->past_address_id)
+                    ->whereNull('moved_out_at')
+                    ->update(['moved_out_at' => $request->relocation_date]);
+            }
+
+            // Create new address history record
+            if ($request->new_address_id) {
+                FamilyAddressHistoryModel::create([
+                    'family_id' => $request->family_id,
+                    'address_id' => $request->new_address_id,
+                    'status' => $request->status ?? 'owner', // atau sesuai business logic
+                    'moved_in_at' => $request->relocation_date,
+                ]);
+            }
+
+            DB::commit();
+
+            $relocation->load([
+                'family.headResident',
+                'pastAddress',
+                'newAddress'
+            ]);
+
+            return $this->successResponse(
+                new FamilyRelocationDetailResource($relocation),
+                'Family relocation created successfully',
+                201
+            );
+        } catch (Exception $e) {
+            DB::rollBack();
+            return $this->errorResponse('Failed to create family relocation', 500, $e->getMessage());
+        }
     }
 
     /**
