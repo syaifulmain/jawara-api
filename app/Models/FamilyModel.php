@@ -35,7 +35,7 @@ class FamilyModel extends Model
         return $this->hasMany(FamilyAddressHistoryModel::class, 'family_id');
     }
 
-    public function currentAddress()
+    public function currentAddress(): ?FamilyAddressHistoryModel
     {
         return $this->addressHistory()
             ->whereNull('moved_out_at')
