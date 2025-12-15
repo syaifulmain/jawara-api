@@ -38,4 +38,9 @@ class FamilyRelocation extends Model
     {
         return $this->belongsTo(AddressModel::class, 'new_address_id');
     }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 }

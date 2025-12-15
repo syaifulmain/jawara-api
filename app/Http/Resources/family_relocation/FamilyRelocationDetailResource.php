@@ -11,13 +11,14 @@ class FamilyRelocationDetailResource extends JsonResource
     public function toArray(Request $request)
     {
         return [
+            'id' => $this->id,
             'relocation_type' => $this->relocation_type,
             'relocation_date' => $this->relocation_date,
             'reason' => $this->reason,
-            'family_id' => $this->family_id,
-            'past_address' => $this->past_address,
-            'new_address' => $this->new_address,
-            'created_by' => $this->created_by
+            'family_name' => $this->family->name,
+            'past_address' => $this->pastAddress->address,
+            'new_address' => $this->newAddress->address,
+            'created_by' => $this->createdBy->name
         ];
     }
 }
