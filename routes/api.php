@@ -18,7 +18,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\AspirasiController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FamilyRelocationController;
 use App\Http\Controllers\UserFamilyController;
 
 
@@ -76,4 +76,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/reports/financial', [LaporanKeuanganController::class, 'cetakLaporan']);
     Route::get('/reports/financial/download-pdf', [LaporanKeuanganController::class, 'downloadPdf']);
+
+    Route::apiResource('family-relocations', FamilyRelocationController::class);
 });
