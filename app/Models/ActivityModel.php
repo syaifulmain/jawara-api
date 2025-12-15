@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class ActivityModel extends Model
 {
@@ -30,5 +29,10 @@ class ActivityModel extends Model
             'pendidikan' => 'Pendidikan',
             'lainnya' => 'Lainnya',
         ][$this->category] ?? 'Lainnya';
+    }
+
+    public function pengeluaran()
+    {
+        return $this->belongsTo(PengeluaranModel::class, 'pengeluaran_id');
     }
 }

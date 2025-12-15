@@ -28,6 +28,14 @@ class ActivityRequest extends FormRequest
             'location' => 'required|string|max:255',
             'person_in_charge' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'is_pengeluaran' => 'required|boolean',
+
+                        // Validasi untuk pengeluaran (required jika is_pengeluaran = true)
+            'nama_pengeluaran' => 'required_if:is_pengeluaran,true|string|max:255',
+            'kategori' => 'nullable|string|max:100',
+            'nominal' => 'required_if:is_pengeluaran,true|numeric|min:0',
+            'verifikator' => 'nullable|string|max:255',
+            'bukti_pengeluaran' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 }
