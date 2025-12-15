@@ -16,8 +16,8 @@ class FamilyRelocationDetailResource extends JsonResource
             'relocation_date' => $this->relocation_date,
             'reason' => $this->reason,
             'family_name' => $this->family->name,
-            'past_address' => $this->pastAddress->address,
-            'new_address' => $this->newAddress->address,
+            'past_address' => $this->pastAddress->address ?? '',
+            'new_address' => $this->newAddress->address ?? '',
             'created_by' => $this->createdBy->name
         ];
     }

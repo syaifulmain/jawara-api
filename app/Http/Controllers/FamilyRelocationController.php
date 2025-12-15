@@ -6,11 +6,16 @@ use App\Http\Requests\FamilyRelocationRequest;
 use App\Http\Resources\family_relocation\FamilyRelocationDetailResource;
 use App\Http\Resources\family_relocation\FamilyRelocationListResource;
 use App\Models\FamilyAddressHistoryModel;
+use App\Models\FamilyModel;
 use App\Models\FamilyRelocation;
 use App\Traits\ApiResponse;
+use Carbon\Carbon;
+use DomainException;
 use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class FamilyRelocationController extends Controller
@@ -92,26 +97,39 @@ class FamilyRelocationController extends Controller
         try {
             DB::beginTransaction();
 
-            $relocation = FamilyRelocation::create($request->validated());
-
-            // Update family address history
-            // Close the old address (set moved_out_at)
-            if ($request->past_address_id) {
-                FamilyAddressHistoryModel::where('family_id', $request->family_id)
-                    ->where('address_id', $request->past_address_id)
-                    ->whereNull('moved_out_at')
-                    ->update(['moved_out_at' => $request->relocation_date]);
+            if (!Auth::check()) {
+                throw new AuthenticationException();
             }
 
-            // Create new address history record
-            if ($request->new_address_id) {
+            $data = $request->validated();
+            $data['created_by'] = Auth::id();
+
+
+            // $relocationDate = Carbon::parse($data['relocation_date']);
+
+
+            $currentHistory =  FamilyModel::find($data['family_id'])->currentAddress();
+
+            $data['past_address_id'] = $currentHistory?->id;
+
+            if ($currentHistory) {
+                $currentHistory->update([
+                    'moved_out_at' => $data['relocation_date'],
+                ]);
+            } else {
+                throw new DomainException('Family has no current address');
+            }
+
+            if (!empty($data['new_address_id'])) {
                 FamilyAddressHistoryModel::create([
-                    'family_id' => $request->family_id,
-                    'address_id' => $request->new_address_id,
-                    'status' => $request->status ?? 'owner', // atau sesuai business logic
-                    'moved_in_at' => $request->relocation_date,
+                    'family_id' => $data['family_id'],
+                    'address_id' => $data['new_address_id'],
+                    'status' => 'owner',
+                    'moved_in_at' => $data['relocation_date'],
                 ]);
             }
+
+            $relocation = FamilyRelocation::create($data);
 
             DB::commit();
 
@@ -126,11 +144,19 @@ class FamilyRelocationController extends Controller
                 'Family relocation created successfully',
                 201
             );
-        } catch (Exception $e) {
+        } catch (\Throwable $e) {
             DB::rollBack();
-            return $this->errorResponse('Failed to create family relocation', 500, $e->getMessage());
+
+            report($e); // ⬅️ WAJIB saat debug
+
+            return $this->errorResponse(
+                'Failed to create family relocation',
+                500,
+                $e->getMessage()
+            );
         }
     }
+
 
     /**
      * Display the specified resource.

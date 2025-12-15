@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class FamilyModel extends Model
 {
@@ -42,4 +43,10 @@ class FamilyModel extends Model
             ->with('address')
             ->first();
     }
+
+    // public function currentAddressRel() : HasOne{
+    //     return $this->hasOne(FamilyAddressHistoryModel::class, 'family_id')
+    //         ->whereNull('moved_out_at')
+    //         ->with('address');
+    // }
 }

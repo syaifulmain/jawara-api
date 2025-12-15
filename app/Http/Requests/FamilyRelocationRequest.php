@@ -26,9 +26,7 @@ class FamilyRelocationRequest extends FormRequest
             'relocation_date' => 'required|date',
             'reason' => 'required|string|max:255',
             'family_id' => 'required|exists:families,id',
-            'past_address_id' => 'required|exists:addresses,id',
             'new_address_id' => 'nullable|exists:addresses,id',
-            'created_by' => 'required|exists:users,id',
         ];
     }
 }
