@@ -12,6 +12,7 @@ class FamilyDetailResource extends JsonResource
         $currentAddress = $this->currentAddress();
 
         return [
+            'id' => $this->id,
             'family_name' => $this->name,
             'family_head' => $this->headResident?->full_name,
             'current_address' => $currentAddress?->address?->address,

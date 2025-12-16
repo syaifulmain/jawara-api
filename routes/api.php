@@ -1,26 +1,26 @@
 <?php
 
-use App\Http\Controllers\DashboardKegiatanController;
-use App\Http\Controllers\DashboardKependudukanController;
-use App\Http\Controllers\DashboardKeuanganController;
-use App\Http\Controllers\LaporanKeuanganController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\AspirasiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\BroadcastController;
-use App\Http\Controllers\IncomeCategoryController;
+use App\Http\Controllers\DashboardKegiatanController;
+use App\Http\Controllers\DashboardKependudukanController;
+use App\Http\Controllers\DashboardKeuanganController;
 use App\Http\Controllers\FamilyController;
+use App\Http\Controllers\FamilyRelocationController;
+use App\Http\Controllers\FruitImageController;
+use App\Http\Controllers\IncomeCategoryController;
+use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\LaporanKeuanganController;
+use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\TransferChannelController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\PengeluaranController;
-use App\Http\Controllers\IncomeController;
-use App\Http\Controllers\AspirasiController;
-use App\Http\Controllers\FamilyRelocationController;
 use App\Http\Controllers\UserFamilyController;
-
+use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [UserController::class, 'register']);
@@ -78,4 +78,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/reports/financial/download-pdf', [LaporanKeuanganController::class, 'downloadPdf']);
 
     Route::apiResource('family-relocations', FamilyRelocationController::class);
+    Route::apiResource('fruit-images', FruitImageController::class);
+
 });
