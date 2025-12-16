@@ -44,7 +44,7 @@ class BillModel extends Model
     }
 
     /**
-     * Get the income category (contribution category) for this bill
+     * Get the income category for this bill
      */
     public function incomeCategory(): BelongsTo
     {

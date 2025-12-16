@@ -23,7 +23,7 @@ class BillRequest extends FormRequest
     {
         $rules = [
             'family_id' => 'required|exists:families,id',
-            'income_category_id' => 'required|exists:contribution_categories,id',
+            'income_category_id' => 'required|exists:income_categories,id',
             'periode' => 'required|date',
             'amount' => 'required|numeric|min:0',
             'status' => 'string|in:unpaid,paid,overdue',

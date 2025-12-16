@@ -22,10 +22,10 @@ class GenerateBillRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'income_category_id' => 'required|exists:contribution_categories,id',
+            'income_category_id' => 'required|exists:income_categories,id',
             'periode' => 'required|date',
             'income_category_ids' => 'sometimes|array',
-            'income_category_ids.*' => 'exists:contribution_categories,id',
+            'income_category_ids.*' => 'exists:income_categories,id',
         ];
     }
 

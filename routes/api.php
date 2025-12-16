@@ -34,6 +34,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('transfer-channels', TransferChannelController::class)->only(['index', 'show', 'store', 'update', 'destroy']);
     
     // Bills routes
+    
     Route::apiResource('bills', BillController::class);
     Route::post('bills/generate', [BillController::class, 'generateBills']);
     Route::patch('bills/{id}/upload-payment', [BillController::class, 'uploadPaymentProof']);
