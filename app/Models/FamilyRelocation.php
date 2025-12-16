@@ -22,6 +22,7 @@ class FamilyRelocation extends Model
 
     protected $casts = [
         'relocation_type' => RelocationType::class,
+        'relocation_date' => 'datetime',
     ];
 
     public function family(): BelongsTo
